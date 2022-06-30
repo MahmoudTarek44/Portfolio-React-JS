@@ -1,11 +1,9 @@
-import homeScreen from '../../Assets/Images/undraw_under_construction_-46-pa.svg'
-
-
+import homeScreen from "../../Assets/Images/undraw_under_construction_-46-pa.svg";
 
 const Home = () => {
 	return (
 		<div className="text-center p-5">
-				<img src={homeScreen} alt="homeScreen" />
+			<img style={{ width: "50%" }} src={homeScreen} alt="homeScreen" />
 		</div>
 	);
 };

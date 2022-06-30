@@ -7,6 +7,7 @@ import ProductDetails from "./Layouts/Product-Details/Product-Details.jsx";
 import ProductList from "./Layouts/Product-List/Product-List.jsx";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Todo from "./Layouts/Todo-list/Todo.jsx";
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/counter" element={<Counter />} />
 					<Route path="/products" element={<ProductList />} />
+					<Route path="/todo" element={<Todo />} />
 					<Route path="/products/product/:id" element={<ProductDetails />} />
 				</Routes>
 			</Router>

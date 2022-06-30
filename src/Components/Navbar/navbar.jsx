@@ -7,14 +7,17 @@ const Navbar = () => {
 			<div className="container-fluid">
 				<div className="collapse navbar-collapse">
 					<ul className="navbar-nav mx-auto">
-						<Link to="/" className="nav-link px-3">
+						<Link to="/" className="nav-link px-3 fs-5">
 							Home
 						</Link>
-						<Link to="/counter" className="nav-link px-3">
+						<Link to="/counter" className="nav-link  px-3 fs-5">
 							Counter
 						</Link>
-						<Link to="/products" className="nav-link px-3">
+						<Link to="/products" className="nav-link px-3 fs-5">
 							Product-List
+						</Link>
+						<Link to="/todo" className="nav-link px-3 fs-5">
+							Todo-List
 						</Link>
 					</ul>
 				</div>
