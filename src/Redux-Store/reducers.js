@@ -1,12 +1,17 @@
 // Actions import >>
-import { ADD_TODO } from "./actions";
-import { REMOVE_TODO } from "./actions";
+import {
+	ADD_TODO,
+	REMOVE_TODO,
+	INCREASE_COUNT,
+	DECREASE_COUNT,
+} from "./actions";
 
 const initialState = {
 	todoList: [],
+	counter: 0,
 };
 
-function todoReducer(state = initialState, action) {
+export function todoReducer(state = initialState, action) {
 	switch (action.type) {
 		case ADD_TODO:
 			return {
@@ -27,4 +32,17 @@ function todoReducer(state = initialState, action) {
 			return state;
 	}
 }
-export default todoReducer;
+export function counterReducer(state = initialState, action) {
+	switch (action.type) {
+		case INCREASE_COUNT:
+			return { ...state, counter: state.counter + 1 };
+		case DECREASE_COUNT:
+			if (state.counter > 0) {
+				return { ...state, counter: state.counter - 1 };
+			}
+			break;
+		default:
+			console.log(state);
+			return state;
+	}
+}

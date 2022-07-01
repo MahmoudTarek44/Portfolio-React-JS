@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux/es/exports";
 
-import Spinner from "react-bootstrap/Spinner";
 import { removeTodo } from "../../Redux-Store/actions";
 
+import Spinner from "react-bootstrap/Spinner";
+
 const TodoOutput = () => {
-	const displayedArray = useSelector((array) => array.todoList);
-	console.log(displayedArray);
+	const displayedArray = useSelector((array) => array.Todo.todoList);
+
 	const dispatch = useDispatch();
 	const removeTask = (index) => {
 		dispatch(removeTodo(index));
@@ -22,7 +23,7 @@ const TodoOutput = () => {
 								className="list-unstyled py-2 px-3 row justify-between align-items-center w-100 border rounded-pill my-2"
 								key={i}
 							>
-								<p className="col-2 mb-0"># : {i}</p>
+								<p className="col-2 mb-0"># : {i + 1}</p>
 								<div className="col-8">
 									<span className="px-5">{e.task}</span>
 									<span className="px-5">{e.description}</span>
@@ -38,7 +39,7 @@ const TodoOutput = () => {
 					})
 				) : (
 					<div className="p-5">
-						<h4 className="pb-4">load your tasks here !!</h4>
+						<h4 className="pb-4">Waiting for your tasks !!</h4>
 						<Spinner animation="border" variant="info" />
 					</div>
 				)}
