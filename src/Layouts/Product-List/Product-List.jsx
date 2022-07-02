@@ -1,28 +1,26 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
+import { getAllProducts } from "../../Redux Toolkit-Store/Features/product-list-Slice";
+import { useDispatch, useSelector } from "react-redux";
+
+import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Spinner from "react-bootstrap/Spinner";
 
 const ProductList = () => {
+	const dispatch = useDispatch();
+
 	useEffect(() => {
-		getProducts();
-	});
+		dispatch(getAllProducts());
+	}, [dispatch]);
 
-	const [products, setProducts] = useState([]);
-
-	const getProducts = () => {
-		fetch("https://fakestoreapi.com/products")
-			.then((res) => res.json())
-			.then((json) => setProducts(json));
-	};
+	const { products, loading } = useSelector((array) => array.productsData);
 
 	return (
 		<div className="container text-center mt-4 row mx-auto justify-content-center">
 			<h1 className="mb-5">product-List</h1>
-
-			{products.length ? (
+			{!loading && products ? (
 				products.map((element, i) => {
 					return (
 						<Card key={i} className="col-3 m-2 mx-3 p-2">

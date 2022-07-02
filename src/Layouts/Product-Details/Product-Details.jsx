@@ -1,5 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+import { useDispatch, useSelector } from "react-redux";
+import { getOneProduct } from "../../Redux Toolkit-Store/Features/product-details-Slice";
 
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -7,23 +10,18 @@ import Spinner from "react-bootstrap/Spinner";
 
 const ProductDetails = () => {
 	const urlParams = useParams();
+	const dispatch = useDispatch();
 
 	useEffect(() => {
-		getProduct();
-	});
+		dispatch(getOneProduct(urlParams.id));
+	}, [dispatch, urlParams.id]);
 
-	const [product, setProduct] = useState({});
+	const { product, loading } = useSelector((array) => array.oneProduct);
 
-	const getProduct = () => {
-		console.log("get the products data from api");
-		fetch(`https://fakestoreapi.com/products/${urlParams.id}`)
-			.then((res) => res.json())
-			.then((json) => setProduct(json));
-	};
 	return (
 		<div className="container text-center py-5">
 			<h1 className="mb-5">Product Details</h1>
-			{product.image ? (
+			{!loading && product ? (
 				<Card className=" w-75 m-5 mx-auto p-5">
 					<Card.Img
 						variant="top"
@@ -44,6 +42,6 @@ const ProductDetails = () => {
 				<Spinner animation="border" variant="info" />
 			)}
 		</div>
-	); 
+	);
 };
 export default ProductDetails;

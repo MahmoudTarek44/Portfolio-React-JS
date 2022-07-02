@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux/es/exports";
-import { addTodo } from "../../Redux-Store/actions";
+// import { addTodo } from "../../Redux-Store/actions";
+import { addTask } from "../../Redux Toolkit-Store/Features/todoSlice";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -14,13 +15,12 @@ const TodoForm = () => {
 	const submitForm = (e) => {
 		e.preventDefault();
 		if (task && description) {
-			dispatch(addTodo({ task, description }));
+			dispatch(addTask({ task, description }));
 			setTask("");
 			setDescription("");
 		} else {
 			alert("Enter your data in input sections below !!");
 		}
-		console.log(task, description);
 	};
 	return (
 		<Form

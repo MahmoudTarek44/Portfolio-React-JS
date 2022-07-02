@@ -4,7 +4,7 @@ import Increment from "../../Components/Counter/increment";
 import Decrement from "../../Components/Counter/decrement";
 
 const Counter = () => {
-	const number = useSelector((num) => num.Count.counter);
+	const number = useSelector((num) => num.counter.counter);
 
 	return (
 		<div className="counter d-block text-center align-items-center w-50 mx-auto mt-5 border border-2 rounded-3">

@@ -1,16 +1,14 @@
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux/es/exports";
-
-import { removeTodo } from "../../Redux-Store/actions";
+import { useSelector, useDispatch } from "react-redux";
+import { removeTask } from "../../Redux Toolkit-Store/Features/todoSlice";
 
 import Spinner from "react-bootstrap/Spinner";
 
 const TodoOutput = () => {
-	const displayedArray = useSelector((array) => array.Todo.todoList);
+	const displayedArray = useSelector((list) => list.todo.taskList);
 
 	const dispatch = useDispatch();
-	const removeTask = (index) => {
-		dispatch(removeTodo(index));
+	const onRemoveTask = (index) => {
+		dispatch(removeTask(index));
 	};
 
 	return (
@@ -29,7 +27,7 @@ const TodoOutput = () => {
 									<span className="px-5">{e.description}</span>
 								</div>
 								<button
-									onClick={() => removeTask(i)}
+									onClick={() => onRemoveTask(i)}
 									className="btn btn-danger col-2"
 								>
 									Remove

@@ -1,16 +1,16 @@
 import { useDispatch } from "react-redux/es/exports";
-import { decreaseCounter } from "../../Redux-Store/actions";
+import { decrement } from "../../Redux Toolkit-Store/Features/counterSlice";
 
 const Decrement = () => {
 	const dispatch = useDispatch();
 
-	const decrement = () => {
-		dispatch(decreaseCounter());
+	const onDecrement = () => {
+		dispatch(decrement());
 	};
 
 	return (
 		<div>
-			<button onClick={decrement} className="btn btn-outline-warning p-4 m-2">
+			<button onClick={onDecrement} className="btn btn-outline-warning p-4 m-2">
 				-
 			</button>
 		</div>

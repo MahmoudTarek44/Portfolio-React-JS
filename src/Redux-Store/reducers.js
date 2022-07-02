@@ -28,7 +28,6 @@ export function todoReducer(state = initialState, action) {
 				],
 			};
 		default:
-			console.log(state);
 			return state;
 	}
 }
@@ -42,7 +41,6 @@ export function counterReducer(state = initialState, action) {
 			}
 			break;
 		default:
-			console.log(state);
 			return state;
 	}
 }
