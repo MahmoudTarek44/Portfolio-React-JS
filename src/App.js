@@ -7,6 +7,7 @@ import ProductDetails from "./Layouts/Product-Details/Product-Details.jsx";
 import ProductList from "./Layouts/Product-List/Product-List.jsx";
 import Todo from "./Layouts/Todo-list/Todo.jsx";
 import NotFound from "./Layouts/Not-Found/not-found.jsx";
+import Register from "./Layouts/Register/register.jsx";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -20,6 +21,7 @@ function App() {
 					<Route path="/counter" element={<Counter />} />
 					<Route path="/products" element={<ProductList />} />
 					<Route path="/todo" element={<Todo />} />
+					<Route path="/register" element={<Register />} />
 					<Route path="/products/product/:id" element={<ProductDetails />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>

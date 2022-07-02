@@ -19,6 +19,9 @@ const Navbar = () => {
 						<Link to="/todo" className="nav-link px-3 fs-5">
 							Todo-List
 						</Link>
+						<Link to="/register" className="nav-link px-3 fs-5">
+							Register
+						</Link>
 					</ul>
 				</div>
 			</div>
